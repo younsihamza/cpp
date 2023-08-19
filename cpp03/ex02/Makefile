@@ -3,11 +3,11 @@ cc = c++
 NAME = scavtrap
 flag = -Wall -Werror -Wextra -std=c++98
 
-files = ClapTrap.cpp main.cpp ScavTrap.cpp
+files = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp
 
 ofiles = $(files:.cpp=.o)
 
-header = ClapTrap.hpp ScavTrap.hpp
+header = ClapTrap.hpp ScavTrap.hpp FragTrap.hpp
 
 all : $(NAME)
 

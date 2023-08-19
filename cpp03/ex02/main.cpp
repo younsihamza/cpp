@@ -1,12 +1,14 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
-    ScavTrap a("hamza");
-    ScavTrap b("younsi");
-    
-    a.guardGate();
+    ScavTrap hamza;
+    FragTrap a("hamza");
+    FragTrap b("younsi");
+
+    hamza.guardGate();
     while(1)
     {
         //a attacks b
@@ -20,9 +22,14 @@ int main()
         b.takeDamage(a.getAttackDamage());
         if(a.getHitPoint() == 0)
             a.beRepaired(100);
-        if(b.getHitPoint()== 0)
+        if(b.getHitPoint() == 0)
             b.beRepaired(100);
         if(a.getHitPoint() == 0 || b.getHitPoint()== 0)
             break;
     }
+    if(a.getHitPoint() != 0)
+        a.highFivesGuys();
+    else if(b.getHitPoint() != 0)
+        b.highFivesGuys();
+
 }
