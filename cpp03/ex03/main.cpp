@@ -1,35 +1,13 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main()
 {
-    ScavTrap hamza;
-    FragTrap a("hamza");
-    FragTrap b("younsi");
+    DiamondTrap a("hamza");
+    a.attack("ana");
 
-    hamza.guardGate();
-    while(1)
-    {
-        //a attacks b
-        a.attack(b.getName());
-        b.takeDamage(a.getAttackDamage());
-        //b attacks a
-        b.attack(a.getName());
-        a.takeDamage(b.getAttackDamage());
-       //a attacks b
-        a.attack(b.getName());
-        b.takeDamage(a.getAttackDamage());
-        if(a.getHitPoint() == 0)
-            a.beRepaired(100);
-        if(b.getHitPoint() == 0)
-            b.beRepaired(100);
-        if(a.getHitPoint() == 0 || b.getHitPoint()== 0)
-            break;
-    }
-    if(a.getHitPoint() != 0)
-        a.highFivesGuys();
-    else if(b.getHitPoint() != 0)
-        b.highFivesGuys();
+   
 
 }
