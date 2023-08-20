@@ -39,7 +39,7 @@ ScavTrap::ScavTrap(const ScavTrap &main)
 }
 
 
-void ScavTrap::operator=(const ScavTrap &main)
+ScavTrap& ScavTrap::operator=(const ScavTrap &main)
 {
     std::cout<< "ScavTrap copy assigment constructor called " << std::endl;
     if(&main != this)
@@ -49,6 +49,7 @@ void ScavTrap::operator=(const ScavTrap &main)
         this->EnargyPoint = main.HitPoint;
         this->AttackDamage = main.AttackDamage;
     }
+    return(*this);
 }
 
 void ScavTrap::guardGate()

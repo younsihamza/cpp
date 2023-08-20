@@ -17,7 +17,7 @@ ClapTrap::ClapTrap(std::string name):name(name),HitPoint(10),EnargyPoint(10),Att
     std::cout << "ClapTrap Constructor called " <<std::endl;
 }
 
-void   ClapTrap::operator=(const ClapTrap &main)
+ClapTrap&  ClapTrap::operator=(const ClapTrap &main)
 {
     std::cout << "ClapTrap copy assigment constructor called " <<std::endl;
     if(&main != this)
@@ -27,6 +27,7 @@ void   ClapTrap::operator=(const ClapTrap &main)
         this->EnargyPoint = main.HitPoint;
         this->AttackDamage = main.AttackDamage;
     }
+    return *this;
 }
 
 ClapTrap::~ClapTrap()

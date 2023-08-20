@@ -10,7 +10,7 @@ class ClapTrap{
     public:
         ClapTrap();
         ClapTrap(const ClapTrap &main);
-        void operator=(const ClapTrap &main);
+        ClapTrap &operator=(const ClapTrap &main);
         ClapTrap(std::string name);
         ~ClapTrap();
 

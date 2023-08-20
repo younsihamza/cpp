@@ -7,6 +7,7 @@ int main()
 {
     DiamondTrap a("hamza");
     a.attack("ana");
+    a.whoAmI();
 
    
 

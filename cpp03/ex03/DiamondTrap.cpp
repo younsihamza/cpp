@@ -25,7 +25,7 @@ DiamondTrap::DiamondTrap(DiamondTrap &main)
         *this = main; 
 }
 
-void DiamondTrap::operator=(DiamondTrap &main)
+ DiamondTrap&  DiamondTrap::operator=(DiamondTrap &main)
 {
     std::cout << "DaimondTrap copy constructor assigment" <<std::endl;
     if(this != &main)
@@ -35,6 +35,7 @@ void DiamondTrap::operator=(DiamondTrap &main)
         this->AttackDamage = main.AttackDamage;
         this->name = main.name;
     }
+    return *this;
 }
 
 DiamondTrap::~DiamondTrap()
@@ -44,5 +45,22 @@ DiamondTrap::~DiamondTrap()
 
 void DiamondTrap::attack(std::string target)
 {
-    ScavTrap::attack(target)
+    ScavTrap::attack(target);
 }
+
+void DiamondTrap::whoAmI()
+{
+    std::cout<< "name:" << &name <<std::endl;
+    std::cout<< "name:" << &EnargyPoint <<std::endl;
+    std::cout<< "name:" << &HitPoint <<std::endl;
+    std::cout<< "name:" << &AttackDamage <<std::endl;
+    std::cout << "claptrap name : " << &(ClapTrap::name) << std::endl;
+    std::cout << "claptrap name : " << &(ClapTrap::EnargyPoint) << std::endl;
+    std::cout << "claptrap name : " << &(ClapTrap::HitPoint) << std::endl;
+    std::cout << "claptrap name : " << &(ClapTrap::AttackDamage) << std::endl;
+    // std::cout << "claptrap name : " << &(FragTrap::name) << std::endl;
+    // std::cout << "claptrap name : " << &(FragTrap::name) << std::endl;
+} 
+
+
+      

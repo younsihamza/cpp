@@ -1,8 +1,7 @@
 cc = c++ 
 
-NAME = scavtrap
+NAME = daimondtrap
 flag = -Wall -Werror -Wextra -std=c++98
-
 files = ClapTrap.cpp main.cpp ScavTrap.cpp FragTrap.cpp DiamondTrap.cpp
 
 ofiles = $(files:.cpp=.o)

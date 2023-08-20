@@ -23,7 +23,7 @@ FragTrap::FragTrap(const FragTrap& main)
         *this = main;
 }
 
-void FragTrap::operator=(const FragTrap& main)
+FragTrap& FragTrap::operator=(const FragTrap& main)
 {
      std::cout<< "FragTrap copy assigment constructor called " << std::endl;
     if(&main != this)
@@ -33,6 +33,7 @@ void FragTrap::operator=(const FragTrap& main)
         this->EnargyPoint = main.HitPoint;
         this->AttackDamage = main.AttackDamage;
     }
+    return *this;
 }
 
 FragTrap::~FragTrap()
