@@ -5,10 +5,7 @@
 
 int main()
 {
-    DiamondTrap a("hamza");
-    a.attack("ana");
-    a.whoAmI();
-
-   
-
+    DiamondTrap *a = new DiamondTrap("hamza");
+    a->attack("younsi");
+    a->whoAmI();
 }

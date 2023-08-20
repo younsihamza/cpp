@@ -16,7 +16,7 @@ ScavTrap::ScavTrap():ClapTrap()
     AttackDamage = 20;
 }
 
-void ScavTrap::attack(std::string target)
+void ScavTrap::attack(const std::string& target)
 {
     if(EnargyPoint > 0 && HitPoint > 0)
     {

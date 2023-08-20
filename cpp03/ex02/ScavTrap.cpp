@@ -16,14 +16,14 @@ ScavTrap::ScavTrap():ClapTrap()
     AttackDamage = 20;
 }
 
-void ScavTrap::attack(std::string target)
+void ScavTrap::attack(const std::string& target)
 {
     if(EnargyPoint > 0 && HitPoint > 0)
     {
         std::cout << "ScavTrap " << name << " attacks " << target << " causing "<<  AttackDamage << "  points of damage " <<std::endl;
         EnargyPoint--;
     }else
-        std::cout << "ScavTrap " << name << "couldn't attcks " << target << std::endl;
+        std::cout << "ScavTrap " << name << "couldn't attacks " << target << std::endl;
 }
 
 ScavTrap::~ScavTrap()

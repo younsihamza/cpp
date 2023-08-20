@@ -35,7 +35,7 @@ ClapTrap::~ClapTrap()
     std::cout << "ClapTrap destructor called " << std::endl;
 }
 
-void  ClapTrap::attack(const std::string& target)
+ void   ClapTrap::attack(const std::string& target)
 {
     if(EnargyPoint > 0 && HitPoint > 0)
     {
