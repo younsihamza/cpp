@@ -1,19 +1,20 @@
-#ifndef AMINAL_HPP
-#define AMINAL_HPP
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
 #include <iostream>
 
 class Animal 
 {
-    private:
+    protected:
         std::string type;
     public:
         Animal();
-        Aminal(std::string type);
+        Animal(std::string type);
         Animal(Animal& main);
         Animal& operator=(Animal& main);
         ~Animal();
-
+        virtual void makeSound()const;
+        std::string getType()const ;
 };
 
 #endif
