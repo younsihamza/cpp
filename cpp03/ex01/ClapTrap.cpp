@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(const ClapTrap &main)
         *this = main; 
 }
 
-ClapTrap::ClapTrap(std::string name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
 {
     std::cout << "ClapTrap Constructor called " <<std::endl;
 }
@@ -27,7 +27,7 @@ ClapTrap&  ClapTrap::operator=(const ClapTrap &main)
         this->EnargyPoint = main.HitPoint;
         this->AttackDamage = main.AttackDamage;
     }
-    return *this;
+    return (*this);
 }
 
 ClapTrap::~ClapTrap()

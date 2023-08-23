@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/21 10:33:10 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/21 14:19:47 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap():name("anonymous"),HitPoint(10),EnargyPoint(10),AttackDamage(0)
@@ -9,10 +21,10 @@ ClapTrap::ClapTrap(const ClapTrap &main)
 {
     std::cout << " ClapTrap copy constructor called " <<std::endl;
     if(&main != this)
-        *this = main; 
+        *this = main;
 }
 
-ClapTrap::ClapTrap(std::string name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
 {
     std::cout << "ClapTrap Constructor called " <<std::endl;
 }

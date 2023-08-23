@@ -7,7 +7,7 @@ DiamondTrap::DiamondTrap()
     EnargyPoint = 50;
 }
 
-DiamondTrap::DiamondTrap(std::string name):ClapTrap(name + "_clap_name"),name(name)
+DiamondTrap::DiamondTrap(const std::string& name):ClapTrap(name + "_clap_name"),name(name)
 {
     std::cout << "DiamondTrap constructor called " <<std::endl;
     this->name = name;

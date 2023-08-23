@@ -1,6 +1,6 @@
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap(std::string name):ClapTrap(name)
+ScavTrap::ScavTrap(const std::string& name):ClapTrap(name)
 {
     std::cout << "ScavTrap Constructor called" <<std::endl;
     HitPoint  = 100;
@@ -23,7 +23,7 @@ void ScavTrap::attack(const std::string& target)
         std::cout << "ScavTrap " << name << " attacks " << target << " causing "<<  AttackDamage << "  points of damage " <<std::endl;
         EnargyPoint--;
     }else
-        std::cout << "ScavTrap " << name << "couldn't attacks " << target << std::endl;
+        std::cout << "ScavTrap " << name << " couldn't attacks " << target << std::endl;
 }
 
 ScavTrap::~ScavTrap()

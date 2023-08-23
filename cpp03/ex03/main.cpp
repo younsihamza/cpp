@@ -5,7 +5,7 @@
 
 int main()
 {
-    DiamondTrap *a = new DiamondTrap("hamza");
+    ScavTrap *a = new DiamondTrap("hamza");
     a->attack("younsi");
-    a->whoAmI();
+    delete a;
 }

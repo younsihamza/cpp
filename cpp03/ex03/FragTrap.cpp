@@ -8,7 +8,7 @@ FragTrap::FragTrap():ClapTrap()
     AttackDamage = 30;
 }
 
-FragTrap::FragTrap(std::string name):ClapTrap(name)
+FragTrap::FragTrap(const std::string& name):ClapTrap(name)
 {
     std::cout << "FragTrap  constructor called" <<std::endl;
     HitPoint  = 100;

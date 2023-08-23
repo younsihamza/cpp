@@ -12,7 +12,7 @@ ClapTrap::ClapTrap(const ClapTrap &main)
         *this = main; 
 }
 
-ClapTrap::ClapTrap(std::string name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
+ClapTrap::ClapTrap(const std::string& name):name(name),HitPoint(10),EnargyPoint(10),AttackDamage(0)
 {
     std::cout << "ClapTrap Constructor called " <<std::endl;
 }
