@@ -3,11 +3,11 @@ cc = c++
 NAME = Animal
 flag = -Wall -Werror -Wextra -std=c++98
 
-files = Animal.cpp Cat.cpp Dog.cpp main.cpp WrongAnimal.cpp WrongCat.cpp
+files = Animal.cpp Cat.cpp Dog.cpp main.cpp  Brain.cpp
 
 ofiles = $(files:.cpp=.o)
 
-header = Animal.hpp Cat.hpp Dog.hpp WrongAnimal.hpp WrongCat.hpp
+header = Animal.hpp Cat.hpp Dog.hpp Brain.hpp
 
 all : $(NAME)
 
