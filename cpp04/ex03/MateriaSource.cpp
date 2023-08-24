@@ -32,19 +32,24 @@ MateriaSource& MateriaSource::operator=(const  MateriaSource& main)
 
 MateriaSource::~MateriaSource()
 {
+    for(int i = 0; i < 4;i++)
+    {
+        if(tableToLearn[i] != NULL)
+            delete tableToLearn[i];
+    }
     delete [] tableToLearn;
 }
 
 void MateriaSource::learnMateria(AMateria* main)
 {
-    int i;
     if(!main)
         return;
-    for(i = 0;i < 4 ; i++)
+    for(int i = 0;i < 4 ; i++)
     {
+     
         if(tableToLearn[i] == NULL)
         {
-            tableToLearn[i]= main;
+            tableToLearn[i] = main;
             return;
         }
     }

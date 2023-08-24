@@ -9,6 +9,7 @@ class Character: public ICharacter
     private:
         std::string name;
         AMateria **tableMateria;
+        AMateria **saveAddress;
     public:
         Character();
         Character(const std::string &name);
