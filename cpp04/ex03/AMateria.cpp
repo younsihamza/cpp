@@ -12,7 +12,7 @@ std::string const & AMateria::getType() const
 
 void AMateria::use(ICharacter& target)
 {
-    
+    std::cout << "hamza younsi"<<target.getName() << std::endl;
 }
 
 AMateria::AMateria():type("none")
@@ -23,6 +23,8 @@ AMateria::AMateria():type("none")
 AMateria::AMateria(AMateria const& main)
 {
     std::cout << "AMateria copy constructor called "<<std::endl;
+    if(&main != this)
+        *this = main;
 }
 
 AMateria& AMateria::operator=(const AMateria& main)
@@ -35,5 +37,5 @@ AMateria& AMateria::operator=(const AMateria& main)
 
 AMateria::~AMateria()
 {
-    
+    std::cout << "AMateria destructor called" << std::endl;
 }
