@@ -1,14 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:46 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 14:15:38 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 #include "Cat.hpp"
 #include "Animal.hpp"
 
-void test()
-{
-    system("leaks Animal");
-}
+
 int main()
 {
-    atexit(test);
     Animal *array[100];
     int i  = 0;
     for(i = 0;i < 50;i++)
@@ -18,5 +26,5 @@ int main()
     
     for(i = 0; i < 100 ;i++)
         delete array[i];
-    
+  
 }

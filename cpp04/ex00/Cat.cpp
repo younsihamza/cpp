@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:07:58 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 13:16:31 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat():Animal()
 {
     std::cout<<"Cat default constructor called "<<std::endl;
     type = "Cat";
 }
 
-Cat::Cat(const Cat& main)
+Cat::Cat(const Cat& main):Animal()
 {
     std::cout << "Cat copy  constractor called  " <<std::endl;
     if(this != &main)

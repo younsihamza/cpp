@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:09:01 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 11:09:01 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Cat.hpp"
 
-Cat::Cat()
+Cat::Cat():Animal(),brain(NULL)
 {
     std::cout<<"Cat default constructor called "<<std::endl;
     type = "Cat";
     brain = new Brain();
 }
 
-Cat::Cat(const Cat& main)
+Cat::Cat(const Cat& main):Animal(),brain(NULL)
 {
     std::cout << "Cat copy  constractor called  " <<std::endl;
     if(this != &main)
@@ -20,9 +32,10 @@ Cat& Cat::operator=(const Cat& main)
     if(this!=&main)
     {
         type = main.type;
-        this->brain = new Brain();
+        if(this->brain == NULL)
+            this->brain = new Brain();
         for(int i = 0; i < 100 ;i++)
-            brain->setIdeas(i,main.brain->getIdeas(i));
+            this->brain->setIdeas(i,main.brain->getIdeas(i));
     }
     return *this;
 }

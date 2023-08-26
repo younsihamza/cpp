@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:07:52 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/08/26 13:19:07 by hyounsi          ###   ########.fr       */
+/*   Created: 2023/08/26 11:08:11 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 13:33:49 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "WrongAnimal.hpp"
 
-Animal::Animal()
+WrongAnimal::WrongAnimal()
 {
-    std::cout << "Animal default constructor called "<<std::endl;
+    std::cout << "WrongAnimal default constructor called "<<std::endl;
     type = "none";
 }
 
-Animal::Animal(const Animal& main)
+
+WrongAnimal::WrongAnimal(const WrongAnimal& main)
 {
-    std::cout << "Animal copy constructor  called "<<std::endl;
+    std::cout << "WrongAnimal copy constructor  called "<<std::endl;
     if(&main != this)
         *this  = main; 
 }
 
-Animal& Animal::operator=(const Animal& main)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& main)
 {
     std::cout << "copy assigment constructor called "<<std::endl;
     if(&main != this)
@@ -33,17 +34,17 @@ Animal& Animal::operator=(const Animal& main)
     return *this;
 }
 
-Animal::~Animal()
+WrongAnimal::~WrongAnimal()
 {
-    std::cout <<"Animal destructor called " <<std::endl;
+    std::cout <<"WrongAnimal destructor called " <<std::endl;
 }
 
-void Animal::makeSound()const
+void WrongAnimal::makeSound()const
 {
-    std::cout << "animal make sound"<<std::endl;
+    std::cout << "WrongAnimal make sound"<<std::endl;
 }
 
-std::string  Animal::getType()const 
+std::string  WrongAnimal::getType()const 
 {
     return type;
 }

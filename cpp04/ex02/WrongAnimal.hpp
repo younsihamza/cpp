@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cure.hpp                                           :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/26 11:09:31 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/08/26 11:09:31 by hyounsi          ###   ########.fr       */
+/*   Created: 2023/08/26 11:08:13 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 14:09:04 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CURE_HPP
-#define CURE_HPP
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
-#include "AMateria.hpp"
+#include <iostream>
 
-class Cure:public AMateria
+class WrongAnimal
 {
+    protected:
+        std::string type;
     public:
-        Cure();
-        Cure(Cure& main);
-        Cure& operator=(Cure& main);
-        ~Cure();
-
-        void use(ICharacter& target);
-        AMateria* clone() const;
-
+        WrongAnimal();
+        WrongAnimal(std::string type);
+        WrongAnimal(const WrongAnimal& main);
+        WrongAnimal& operator=(const WrongAnimal& main);
+        void makeSound()const;
+        std::string getType()const ;
+        virtual ~WrongAnimal();
 };
 
 #endif

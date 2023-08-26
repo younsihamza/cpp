@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.hpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:09:26 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 14:08:41 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
@@ -23,5 +35,4 @@ class Character: public ICharacter
         void use(int idx, ICharacter& target);
 
 };
-
 #endif

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:11 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 13:20:28 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal()
@@ -6,19 +18,14 @@ WrongAnimal::WrongAnimal()
     type = "none";
 }
 
-WrongAnimal::WrongAnimal(std::string type):type(type)
-{
-    std::cout << "WrongAnimal constucotr called  " <<std::endl;
-}
-
-WrongAnimal::WrongAnimal(WrongAnimal& main)
+WrongAnimal::WrongAnimal(const WrongAnimal& main)
 {
     std::cout << "WrongAnimal copy constructor  called "<<std::endl;
     if(&main != this)
         *this  = main; 
 }
 
-WrongAnimal& WrongAnimal::operator=(WrongAnimal& main)
+WrongAnimal& WrongAnimal::operator=(const WrongAnimal& main)
 {
     std::cout << "copy assigment constructor called "<<std::endl;
     if(&main != this)

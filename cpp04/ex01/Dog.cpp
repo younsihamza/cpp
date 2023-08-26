@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:35 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 11:08:35 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog():Animal(),brain(NULL)
 {
     std::cout<<"Dog default constructor called "<<std::endl;
     type = "Dog";
     brain = new Brain();
 }
 
-Dog::Dog(const Dog& main)
+Dog::Dog(const Dog& main):Animal(),brain(NULL)
 {
     std::cout << " copy  constractor called  " <<std::endl;
     if(this != &main)
@@ -20,7 +32,8 @@ Dog& Dog::operator=(const Dog& main)
      if(this!=&main)
     {
         type = main.type;
-        this->brain = new Brain();
+        if(this->brain == NULL)
+            this->brain = new Brain();
         for(int i = 0; i < 100 ;i++)
             this->brain->setIdeas(i,main.brain->getIdeas(i));
     }

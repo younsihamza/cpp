@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Character.cpp                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:09:23 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 12:11:49 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Character.hpp"
 
  Character::Character():name("none"),tableMateria(new AMateria*[4])
  {
-    std::cout <<"character default constructor called"<<std::endl;
+    //std::cout <<"character default constructor called"<<std::endl;
     saveAddress = NULL;
     for(int i = 0 ; i < 4 ;i++)
         tableMateria[i] = NULL;
@@ -10,24 +22,26 @@
 
 Character::Character(const std::string &name):name(name),tableMateria(new AMateria*[4])
 {
-    std::cout <<"character constructor called"<<std::endl;
+    //std::cout <<"character constructor called"<<std::endl;
+    saveAddress = NULL;
     for(int i = 0 ; i < 4 ;i++)
         tableMateria[i] = NULL;
 }
 
-Character::Character(const Character &main)
+Character::Character(const Character &main):tableMateria(NULL),saveAddress(NULL)
 {
-    std::cout << "character copy constructor called"<<std::endl;
+    //std::cout << "character copy constructor called"<<std::endl;
     if(&main != this)
         *this = main;
 }
 
 Character& Character::operator=(const Character &main)
 {
-    std::cout << "character copy assigment called"<<std::endl;
+    //std::cout << "character copy assigment called"<<std::endl;
     if(&main != this)
     {
-        this->tableMateria = new AMateria*;
+        if(tableMateria == NULL)
+            this->tableMateria = new AMateria*[4];
         for(int i = 0 ; i < 4 ; i++)
             this->tableMateria[i] = main.tableMateria[i];
     }
@@ -36,11 +50,14 @@ Character& Character::operator=(const Character &main)
 
 Character::~Character()
 {
-    std::cout << "Character destructor called"<<std::endl;
+   // std::cout << "Character destructor called"<<std::endl;
     for(int i = 0; i < 4 ;i++)
     {
         if(tableMateria[i] != NULL)
+          {
                 delete tableMateria[i];
+                tableMateria[i] = NULL;
+          }      
     }
     delete[] tableMateria;
     if(saveAddress)
@@ -62,12 +79,23 @@ void Character::equip(AMateria* m)
         return;
     for(int i = 0 ; i < 4 ;i++)
     {
-        if(tableMateria[i] == NULL)
+        if(tableMateria[i] == m)
         {
-            tableMateria[i] = m;
+            std::cout << m->getType() << " : i have this one " << std::endl;
             return;
         }
     }
+    for(int i = 0 ; i < 4 ;i++)
+    {
+        if(tableMateria[i] == NULL)
+        {
+            tableMateria[i] = m;
+            std::cout  << "equip materia type : " << m->getType() << std::endl; 
+            return;
+        }
+    }
+    delete m;
+    std::cout << "i'm full " << std::endl;
 }
 
 int ft_strlen2d(AMateria **array)
@@ -106,6 +134,7 @@ void Character::unequip(int idx)
     if(tableMateria[idx]!= NULL)
     {
         saveAddress = ft_join2d(saveAddress,tableMateria[idx]);
+        std::cout << "unequip materia type :" << tableMateria[idx]->getType() <<std::endl;
         tableMateria[idx] = NULL;
     }
 }
@@ -113,6 +142,9 @@ void Character::unequip(int idx)
 void Character::use(int idx, ICharacter& target)
 {
     if(idx > 3  || idx < 0 || this->tableMateria[idx] == NULL)
+    {
+        std::cout << "i don't anything in this index " << idx << std::endl;
         return;
+    }
     tableMateria[idx]->use(target);
 }

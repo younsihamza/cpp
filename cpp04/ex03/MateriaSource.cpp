@@ -1,25 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MateriaSource.cpp                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:09:49 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 12:07:28 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MateriaSource.hpp"
 #include "AMateria.hpp"
 #include "Cure.hpp"
 #include "Ice.hpp"
 
-MateriaSource::MateriaSource():tableToLearn(new AMateria*[4])
+MateriaSource::MateriaSource():IMateriaSource(),tableToLearn(new AMateria*[4])
 {
-    std::cout << "MateriaSource default constructor called "<<std::endl;
+   // std::cout << "MateriaSource default constructor called "<<std::endl;
     for(int i = 0 ; i < 4 ; i++)
         tableToLearn[i] = NULL;
 }
 
-MateriaSource::MateriaSource(const MateriaSource& main):tableToLearn(NULL)
+MateriaSource::MateriaSource(const MateriaSource& main):IMateriaSource(),tableToLearn(NULL)
 {
-    std::cout << "MateriaSource copy constructor called"<<std::endl;
+    //std::cout << "MateriaSource copy constructor called"<<std::endl;
     if(&main != this)
         *this = main;
 }
 
 MateriaSource& MateriaSource::operator=(const  MateriaSource& main)
 {
-    std::cout << "MateriaSource copy assigment  called"<<std::endl;
+    //std::cout << "MateriaSource copy assigment  called"<<std::endl;
     if(&main != this)
     {
         if(tableToLearn == NULL)
@@ -46,10 +58,16 @@ void MateriaSource::learnMateria(AMateria* main)
         return;
     for(int i = 0;i < 4 ; i++)
     {
-     
+        if(tableToLearn[i] == main)
+            return;
+    }
+    
+    for(int i = 0;i < 4 ; i++)
+    {
         if(tableToLearn[i] == NULL)
         {
             tableToLearn[i] = main;
+            std::cout << "Materia source learn new materia type : "  << main->getType() <<std::endl;
             return;
         }
     }
@@ -63,8 +81,12 @@ AMateria* MateriaSource::createMateria(std::string const & type)
         if(tableToLearn[i] != NULL)
         {
             if(tableToLearn[i]->getType() == type)
+            {
+                std::cout << "Materia Source create new materia "<<type<<std::endl;
                 return tableToLearn[i]->clone();
+            }
         }
     }
+     std::cout << "Materia Source did not learn  this type "<< type <<std::endl;
     return NULL;
 }

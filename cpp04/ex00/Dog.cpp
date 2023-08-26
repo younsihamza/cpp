@@ -1,12 +1,24 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:03 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 11:08:03 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Dog.hpp"
 
-Dog::Dog()
+Dog::Dog():Animal()
 {
     std::cout<<"Dog default constructor called "<<std::endl;
     type = "Dog";
 }
 
-Dog::Dog(const Dog& main)
+Dog::Dog(const Dog& main):Animal()
 {
     std::cout << " copy  constractor called  " <<std::endl;
     if(this != &main)

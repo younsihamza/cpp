@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:26 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 11:08:26 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Brain.hpp"
 
 Brain::Brain()
@@ -18,9 +30,7 @@ Brain& Brain::operator=(const Brain& main)
     if(this != &main)
     { 
         for(int i = 0; i < 100;i++)
-        {
             this->ideas[i] = main.ideas[i];
-        }
     }
     return *this;
 }
@@ -30,11 +40,11 @@ Brain::~Brain()
     std::cout << "Brain destructor called" <<std::endl;
 }
 
- void Brain::setIdeas(int i,std::string replace )
+ void Brain::setIdeas(int i,std::string const & replace )
  {
         ideas[i] = replace;
  }
-std::string Brain::getIdeas(int i)const
+std::string const &  Brain::getIdeas(int i)const
 {
     return ideas[i];
 }

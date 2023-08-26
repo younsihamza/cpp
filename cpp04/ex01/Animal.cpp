@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/08/26 11:08:20 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/08/26 13:23:43 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Animal.hpp"
 
 Animal::Animal()
@@ -6,19 +18,14 @@ Animal::Animal()
     type = "none";
 }
 
-Animal::Animal(std::string type):type(type)
-{
-    std::cout << "Animal constucotr called  " <<std::endl;
-}
-
-Animal::Animal(Animal& main)
+Animal::Animal(const Animal& main)
 {
     std::cout << "Animal copy constructor  called "<<std::endl;
     if(&main != this)
         *this  = main; 
 }
 
-Animal& Animal::operator=(Animal& main)
+Animal& Animal::operator=(const Animal& main)
 {
     std::cout << "copy assigment constructor called "<<std::endl;
     if(&main != this)
