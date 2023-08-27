@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 11:08:31 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/08/26 11:08:31 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/08/26 17:56:39 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,7 @@ Cat& Cat::operator=(const Cat& main)
         type = main.type;
         if(this->brain == NULL)
             this->brain = new Brain();
-        for(int i = 0; i < 100 ;i++)
-            this->brain->setIdeas(i,main.brain->getIdeas(i));
+        *(this->brain) = *(main.brain);
     }
     return *this;
 }
