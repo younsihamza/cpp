@@ -82,3 +82,9 @@ std::ostream& operator<<(std::ostream& out , const Bureaucrat& main)
     out << main.getName() <<", bureaucrat grade " << main.getGrade() << ".";
     return out;
 }
+
+void Bureaucrat::executeForm(Form const & form)
+{
+    form.execute(*this);
+    std::cout << name << "executed " << form.getName() <<std::endl;
+}

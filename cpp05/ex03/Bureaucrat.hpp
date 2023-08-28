@@ -2,7 +2,8 @@
 #define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+#include "AForm.hpp"
+
 class Form;
 
 class Bureaucrat
@@ -33,6 +34,7 @@ class Bureaucrat
             public:
                const char* what() const throw();
         };
+        void executeForm(Form const & form);
 };
 
 std::ostream& operator<<(std::ostream& out , const Bureaucrat& main);

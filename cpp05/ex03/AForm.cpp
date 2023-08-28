@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
 Form::Form():name("neno"),sign(false),gradeToSign(50),gradeToExecute(20)
@@ -26,6 +26,7 @@ Form& Form::operator=(const Form& main)
         this->sign = main.sign;
     return *this;
 }
+
 Form::~Form()
 {
 
@@ -61,16 +62,26 @@ int Form::getGradeToExecute()const
 
 const char * Form::GradeTooHighException::what() const throw()
 {
-    return "form grade too high";
+    return "Form grade too high";
 }
 
 const char * Form::GradeTooLowException::what() const throw()
 {
-    return "form grade too low ";
+    return "Form grade too low ";
+}
+
+const char *Form::NoSignedFormException::what()const throw()
+{
+    return "Form not signed";
 }
 
 std::ostream& operator<<(std::ostream& out , const Form& main)
 {
-    out << main.getName() <<", grade to sign is  " << main.getGradeToSign() << " grade to execute form is "<< main.getGradeToExecute() << " form is sign : "<< main.getGradeToSign()<< ".";
+    out << main.getName() <<", grade to sign is  " << main.getGradeToSign() << " grade to execute Form is "<< main.getGradeToExecute() << " form is sign : "<< main.getGradeToSign()<< ".";
     return out;
+}
+
+void Form::setSign(bool sign)
+{
+    this->sign = sign;
 }

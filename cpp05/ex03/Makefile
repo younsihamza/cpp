@@ -3,11 +3,11 @@ cc = c++
 NAME = Bureaucrat
 flag = -Wall -Werror -Wextra -std=c++98
 
-files = Bureaucrat.cpp main.cpp Form.cpp
+files = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
 
 ofiles = $(files:.cpp=.o)
 
-header = Bureaucrat.hpp Form.hpp
+header = Bureaucrat.hpp AForm.hpp ShrubberyCreationForm.hpp RobotomyRequestForm.hpp PresidentialPardonForm.hpp
 
 all : $(NAME)
 
@@ -20,7 +20,7 @@ $(NAME) : $(ofiles)
 clean:
 	rm -f $(ofiles)
 
-fclean : clean 
+fclean : clean
 	rm -f $(NAME)
 
 re : fclean re
