@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/26 11:09:52 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/08/26 11:09:52 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/08/29 18:15:11 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include "AMateria.hpp"
 
 class MateriaSource : public  IMateriaSource
-{
+{.
     private:
         AMateria **tableToLearn;
     public:

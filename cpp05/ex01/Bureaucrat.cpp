@@ -63,6 +63,7 @@ void Bureaucrat::signForm(Form& frm)
     else
         {
             frm.beSigned(*this);
+            
             std::cout << name << " signed " << frm.getName() <<std::endl;
         }
 }

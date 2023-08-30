@@ -9,7 +9,6 @@ int main(int argc ,char **argv)
         std::cout << "you must enter one argument !!!" <<std::endl;
         return 0;
     }
-    ScalarConverter a;
-    a.convert(argv[1]);
+    ScalarConverter::convert(argv[1]);
 
 }
