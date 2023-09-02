@@ -1,18 +1,35 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 14:09:08 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/02 14:15:39 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <iostream>
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "Intern.hpp"
+
 
 int main()
 {
+    Form *w  = NULL;
     try
     {
-        Bureaucrat a("hamza",100);
+        Bureaucrat a("hamza",10);
         PresidentialPardonForm t("hamza");
-        a.signForm(t);
-        t.execute(a);
+        Intern yy;
+        w = yy.makeForm("robotomy request" ,"me");
+        a.signForm(*w);
+        a.executeForm(*w);
         std::cout << a << std::endl;
     }
     catch(std::exception & e)

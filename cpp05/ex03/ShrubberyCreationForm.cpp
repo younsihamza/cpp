@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 14:09:26 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/02 14:09:26 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
@@ -49,10 +61,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     std::ofstream out;
     out.open(target,std::ios::app);
     if(!out.is_open())
-    {
-        std::cout << "file did not open "<<std::endl;
-        exit(0);
-    }
+        throw fileNotWork();
     printTree(out);
     out.close();
 }
+ const char* ShrubberyCreationForm::fileNotWork::what() const throw()
+ {
+    return  "file did not open ";
+ }

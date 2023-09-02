@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Bureaucrat.cpp                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 14:07:56 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/02 15:17:51 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat():name("none"),grade(1)
@@ -51,7 +63,7 @@ void Bureaucrat::increament()
 
 void Bureaucrat::decrement()
 {
-    if(grade + 1 < 150)
+    if(grade + 1 > 150)
         throw Bureaucrat::GradeTooLowException();
     grade++;
 }
@@ -63,7 +75,6 @@ void Bureaucrat::signForm(Form& frm)
     else
         {
             frm.beSigned(*this);
-            
             std::cout << name << " signed " << frm.getName() <<std::endl;
         }
 }

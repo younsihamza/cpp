@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 14:09:21 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/02 14:09:21 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm():Form("RobotomyRequestForm",72,45),target("Home")
@@ -29,9 +41,10 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
     if (executor.getGrade() > getGradeToExecute())
         throw GradeTooLowException();
     std::cout << "robot  drilling noises" <<std::endl;
+    std::srand(time(NULL));
     bool test = (std::rand()%2);
     if(test == true)
         std::cout << target<<" has been robotomized successfully "<<std::endl;
-    else 
+    else
         std::cout << target<<" has been failed"<<std::endl;
 }

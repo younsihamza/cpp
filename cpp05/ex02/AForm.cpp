@@ -1,7 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/02 14:08:14 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/02 14:08:14 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "AForm.hpp"
 
 
-Form::Form():name("neno"),sign(false),gradeToSign(50),gradeToExecute(20)
+Form::Form():name("N"),sign(false),gradeToSign(50),gradeToExecute(20)
 {
 
 }
