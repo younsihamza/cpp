@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:08:14 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:08:14 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/03 16:55:32 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ Form::~Form()
 
 void Form::beSigned(const Bureaucrat& B)
 {
-    if(B.getGrade()> gradeToSign)
+    if(B.getGrade() > gradeToSign)
         throw GradeTooLowException();
     sign = true;
+    std::cout << B.getName() << " signed " << name <<std::endl;
 }
 
 

@@ -1,6 +1,6 @@
 cc = c++ 
 
-NAME = Bureaucrat
+NAME = coffee-making
 flag = -Wall -Werror -Wextra -std=c++98
 
 files = Bureaucrat.cpp main.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp
@@ -23,4 +23,4 @@ clean:
 fclean : clean
 	rm -f $(NAME)
 
-re : fclean re
+re : fclean all

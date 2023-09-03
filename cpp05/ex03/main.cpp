@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:09:08 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:15:39 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/03 15:19:00 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ int main()
         PresidentialPardonForm t("hamza");
         Intern yy;
         w = yy.makeForm("robotomy request" ,"me");
+        if(w != NULL)
+        {
         a.signForm(*w);
         a.executeForm(*w);
+
+        }
         std::cout << a << std::endl;
     }
     catch(std::exception & e)
     {
         std::cout << "EXCEPTION : " << e.what() << std::endl;
     }
+    if(w != NULL)
+        delete w;
 }

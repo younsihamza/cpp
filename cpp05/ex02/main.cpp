@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:08:24 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:08:24 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/03 14:19:43 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int main()
 {
     try
     {
-        Bureaucrat a("hamza",100);
+        Bureaucrat a("hamza",5);
         PresidentialPardonForm t("hamza");
+        ShrubberyCreationForm r("younsi");
         a.signForm(t);
         t.execute(a);
         std::cout << a << std::endl;

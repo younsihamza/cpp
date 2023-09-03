@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:08:19 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 15:17:36 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/03 16:52:36 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void Bureaucrat::decrement()
 
 void Bureaucrat::signForm(Form& frm)
 {
-    if(frm.getSign() == true)
-        std::cout << name << " couldn't sign " << frm.getName()<<" because already sigend"<<std::endl; 
-    else
-        {
-            frm.beSigned(*this);
-            std::cout << name << " signed " << frm.getName() <<std::endl;
-        }
+    try
+    {
+        frm.beSigned(*this);
+    }catch(std::exception &e)
+    {
+        std::cout << name <<" couldn't sign "<<frm.getName()<< " because "<<e.what()<<std::endl;
+    }
 }
 
 const char* Bureaucrat::GradeTooHighException::what()const throw()
