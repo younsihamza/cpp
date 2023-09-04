@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:08:24 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 10:58:55 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:51:53 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int main()
     try
     {
         Bureaucrat a("hamza",4);
-        PresidentialPardonForm t("hamza");
+        ShrubberyCreationForm t("hamza");
         ShrubberyCreationForm r("younsi");
         a.signForm(t);
         t.execute(a);

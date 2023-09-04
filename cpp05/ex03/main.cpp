@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:09:08 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 11:06:29 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:51:07 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int main()
     try
     {
         Bureaucrat a("hamza",10);
-        PresidentialPardonForm t("hamza");
+        ShrubberyCreationForm t("hamza");
         Intern yy;
         w = yy.makeForm("robotomy request" ,"me");
         if(w != NULL)

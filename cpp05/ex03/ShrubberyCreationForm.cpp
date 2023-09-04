@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:09:26 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:09:26 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:44:50 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     if(executor.getGrade() > this->getGradeToExecute())
         throw GradeTooLowException();
     std::ofstream out;
-    out.open(target,std::ios::app);
+    out.open(target+"_shrubbery",std::ios::app);
     if(!out.is_open())
         throw fileNotWork();
     printTree(out);

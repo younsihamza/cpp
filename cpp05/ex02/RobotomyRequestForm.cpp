@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:08:36 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:08:36 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 18:49:10 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor)const
     if (executor.getGrade() > getGradeToExecute())
         throw GradeTooLowException();
     std::cout << "robot  drilling noises" <<std::endl;
+    std::srand(time(NULL));
     bool test = (std::rand()%2);
     if(test == true)
         std::cout << target<<" has been robotomized successfully "<<std::endl;
