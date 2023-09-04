@@ -3,10 +3,10 @@ cc = c++
 NAME = Bureaucrat
 flag = -Wall -Werror -Wextra -std=c++98
 
-files = ScalarConverter.cpp main.cpp
+files = help.cpp main.cpp Base.cpp 
 ofiles = $(files:.cpp=.o)
 
-header = ScalarConverter.hpp
+header = Base.hpp C.hpp A.hpp B.hpp 
 
 all : $(NAME)
 

@@ -5,7 +5,6 @@
 
 Base * generate(void)
 {
-    int i;
     int index = 0;
     std::srand(static_cast<unsigned int>(std::time(NULL))); 
     index = (std::rand() % 3);
@@ -32,10 +31,26 @@ void identify(Base* p)
 
 void identify(Base& p)
 {
-    if(dynamic_cast<A*> (&p) != NULL) 
-        std::cout << "A" <<std::endl;
-    else if(dynamic_cast<B*> (&p) != NULL)
-        std::cout << "B" <<std::endl;
-    else if(dynamic_cast<C*> (&p) != NULL)
-        std::cout << "C" <<std::endl;
+    try{
+        try{
+            p =dynamic_cast<A&> (p);
+            std::cout << "A" <<std::endl;
+                throw 1;
+        }catch(...)
+        {}
+        try{
+            p = dynamic_cast<B&> (p);
+            std::cout << "B" <<std::endl;
+                throw 1;
+        }catch(...)
+        {}
+        try{
+            p = dynamic_cast<C&> (p);
+            std::cout << "C" <<std::endl;
+                throw 1;
+        }catch(...)
+        {}
+    }catch(...)
+    {
+    }
 }
