@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:09:04 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/02 14:09:04 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 11:06:08 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ Form* Intern::makeForm(const std::string& FormName ,const std::string& target)
     {
         if(FormName == NameForms[i])
         {
-            std::cout << "Intern creates " <<  FormName <<std::endl;
+            std::cout << "Intern creates " <<  FormName <<" Form"<<std::endl;
             return  (this->*fp[i])(target);
         }
     }

@@ -1,0 +1,5 @@
+there is multiple type of contianer in c++  vector ,array ,linked list ,queue ,stack etc
+
+array  : 
+
+is a static  array 

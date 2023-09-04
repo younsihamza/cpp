@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/02 14:09:08 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/03 15:19:00 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/04 11:06:29 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,8 @@ int main()
         w = yy.makeForm("robotomy request" ,"me");
         if(w != NULL)
         {
-        a.signForm(*w);
-        a.executeForm(*w);
-
+            a.signForm(*w);
+            a.executeForm(*w);
         }
         std::cout << a << std::endl;
     }
