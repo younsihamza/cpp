@@ -27,7 +27,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& main):
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& main)
 {
     if(&main != this)
+    {
         this->setSign(main.getSign());
+        this->target = main.target;
+    }
     return *this;
 }
 
@@ -59,7 +62,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
     if(executor.getGrade() > this->getGradeToExecute())
         throw GradeTooLowException();
     std::ofstream out;
-    out.open(target+"_shrubbery",std::ios::app);
+    out.open((target+"_shrubbery").c_str());
     if(!out.is_open())
         throw fileNotWork();
     printTree(out);

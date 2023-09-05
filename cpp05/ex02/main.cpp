@@ -22,11 +22,18 @@ int main()
     try
     {
         Bureaucrat a("hamza",4);
-        ShrubberyCreationForm t("hamza");
+        RobotomyRequestForm t("hamza");
+        PresidentialPardonForm h("hy9");
         ShrubberyCreationForm r("younsi");
         a.signForm(t);
+        a.signForm(h);
+        a.signForm(r);
+
         t.execute(a);
+        h.execute(a);
+        r.execute(a);
         std::cout << a << std::endl;
+        std::cout << h << std::endl;
     }
     catch(std::exception & e)
     {

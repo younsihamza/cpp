@@ -19,8 +19,9 @@ int main()
     try
     {
         Bureaucrat a("hamza",10);
-        Bureaucrat b("ali",11);
-        Form u("younsi",1,10);
+        Bureaucrat b("ali",15);
+        Form u("younsi",10,10);
+        a.signForm(u);
         a.signForm(u);
         std::cout << u <<std::endl;
         std::cout << a << std::endl;

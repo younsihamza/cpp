@@ -18,7 +18,7 @@ PresidentialPardonForm::PresidentialPardonForm():Form("PresidentialPardonForm",2
 PresidentialPardonForm::PresidentialPardonForm(const std::string& target):Form("PresidentialPardonForm",25,5),target(target)
 {}
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& main):Form("PresidentialPardonForm",25,5),target(main.target)
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& main):Form("PresidentialPardonForm",25,5)
 {
     if(this != &main)
         *this = main;
@@ -27,7 +27,10 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& mai
 PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& main)
 {
     if(this != &main)
+    {
         this->setSign(main.getSign());
+        this->target = main.target;
+    }
     return *this;
 }
 
