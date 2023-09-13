@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/09/13 19:50:29 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/09/13 19:50:29 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
 Span::Span():len(1),numbers(new std::vector<int>[1]),cournet_size(0)
@@ -29,6 +41,7 @@ Span& Span::operator=(const Span& main)
     }
     return (*this);
 }
+
 Span::Span(std::vector<int>::iterator begin,std::vector<int>::iterator end):numbers(new std::vector<int>(begin,end))
 {
 
@@ -47,6 +60,7 @@ void Span::addNumber(int number)
     }else
         throw std::out_of_range("adding number out of range");
 }
+
 int Span::shortestSpan()
 {
     if(len <= 1)
@@ -61,8 +75,8 @@ int Span::shortestSpan()
     }
     return tmp;
 
-
 }
+
 int Span::longestSpan()
 {
     if(len <= 1)
