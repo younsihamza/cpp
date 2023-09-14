@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:29 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 16:09:29 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:54:44 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 template <typename T> 
 
-void iter(T *p ,int len ,void (*play)(T const &))
+void iter(T *p ,int len ,void (*play)(T))
 {
     int i ;
     if(p == NULL)

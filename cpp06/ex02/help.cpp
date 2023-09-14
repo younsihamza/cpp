@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:14 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 19:09:39 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/12 17:56:40 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void identify(Base& p)
 {
     try{
         try{
-            p =dynamic_cast<A&> (p);
+            static_cast<void> (dynamic_cast<A&> (p));
             std::cout << "A" <<std::endl;
         }catch(...)
         {}

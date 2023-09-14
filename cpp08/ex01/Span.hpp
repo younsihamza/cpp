@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/13 19:50:37 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/13 19:50:37 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/14 13:01:57 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Span
         ~Span();
 
         void addNumber(int number);
-        void fillSpan();
+        void fillSpan(int *arr);
         int shortestSpan();
         int longestSpan();
 };

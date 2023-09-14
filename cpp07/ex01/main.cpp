@@ -6,12 +6,13 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:32 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 16:09:32 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/14 14:57:44 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "iter.hpp"
 #include <iostream>
+#include <array>
 
 class Awesome
 {
