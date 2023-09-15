@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:25 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 16:09:25 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/15 18:55:54 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void  swap(T &a , T &b)
     a = b;
     b = tmp;
 }
-template <typename T >       T& min( T &a , T &b)
+template <typename T >  T& min( T &a , T &b)
 {
     return ((a < b)?  a: b);
 }

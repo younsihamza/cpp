@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:36 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/04 16:09:36 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/09/15 20:12:10 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,12 @@ template<typename T> class Array{
         if(this != &main)
             *this = main;
     }
+    
     Array& operator=(const Array& main)
     {
         if(this != &main)
         {
-            if(Ar )
+            if(Ar)
                 delete[] Ar;
             Ar = new T[main.len];
             for(int i = 0;i < main.len ; i++)
@@ -43,7 +44,8 @@ template<typename T> class Array{
         }
         return *this;
     }
-    T& operator[](unsigned int index)
+    
+    T& operator[]( int index) const 
     {
         if(index >= len || index < 0)
             throw std::exception();

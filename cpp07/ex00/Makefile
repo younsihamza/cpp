@@ -4,7 +4,7 @@ name = template
 
 flags = -Wall -Wextra -Werror -std=c++98
 
-header = iter.hpp
+header = whatever.hpp
 file = main.cpp
 
 ofile = $(file:.cpp=.o)

@@ -1,10 +1,10 @@
 cc = c++
 
-name = template
+name = array
 
 flags = -Wall -Wextra -Werror -std=c++98
 
-header = iter.hpp
+header = Array.hpp
 file = main.cpp
 
 ofile = $(file:.cpp=.o)
@@ -18,7 +18,7 @@ $(name) : $(ofile)
 	$(cc) $(flags) $< -c -o $@
 
 clean : 
-	rm -f $(ofile);
+	rm -f $(ofile)
 
 fclean : clean 
 	rm -f $(name)
