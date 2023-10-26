@@ -18,7 +18,7 @@ $(name) : $(ofile)
 	$(cc) $(flags) $< -c -o $@
 
 clean : 
-	rm -f $(ofile);
+	rm -f $(ofile)
 
 fclean : clean 
 	rm -f $(name)
