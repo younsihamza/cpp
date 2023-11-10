@@ -2,12 +2,12 @@
 #define SPAN_HPP
 #include <iostream>
 #include <algorithm>
+#include <vector>
 
 class Span
 {
     private:
         unsigned int size;
-        int current_position;
         std::vector<int> hold;
     public:
         Span();
@@ -20,9 +20,17 @@ class Span
         int longestSpan();
         int  shortestSpan();
         
-        template<typename T >void addOne(T begin,T end){
-           std::copy(begin , end,std::back_inserter(hold));
-}
+        template<typename T >void addOne(T begin,T end)
+        {
+            for(T i = begin; i != end;i++)
+                addNumber(*i);
+            // std::copy(begin , end,std::back_inserter(hold));
+            // std::cout << hold.size() << "   " << size <<std::endl;
+            // if(static_cast<unsigned int>(hold.size()) >= size)
+            //     throw "out of rang";
+            // else
+            //     current_position = static_cast<int>(hold.size());
+        }
 };
 
 #endif

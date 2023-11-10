@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:29 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/15 19:11:12 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/11/10 10:07:13 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 #include <iostream>
 
 template <typename T ,typename U> 
-
 void iter(T p ,int len ,void ((*play)(U)))
 {
     int i ;

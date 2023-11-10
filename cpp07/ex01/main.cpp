@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:32 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/15 19:09:51 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:06:36 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,12 @@ int _n;
 std::ostream & operator<<( std::ostream & o, Awesome const & rhs ) { o << rhs.get(); return o; }
 template< typename T >
 void print( T const & x ) { std::cout << x << std::endl; return; }
+void prints( int  &x ) { x = 12; }
+
 int main() {
-int tab[] = { 0, 1, 2, 3, 4 }; // <--- I never understood why you can't write int[] tab. Wouldn't that make more sense?
+int tab[] = { 0, 1, 2, 3};
 Awesome tab2[5];
+iter( tab, 5, prints );
 iter( tab, 5, print<int> );
 iter( tab2, 5, print<Awesome> );
 return 0;

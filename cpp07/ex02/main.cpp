@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:39 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/09/15 20:13:16 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/11/10 11:03:56 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,8 @@
 
 #define MAX_VAL 750
 
-void test()
-{
-    system("leaks array");
-}
 int main(int, char**)
 {
-    atexit(test);
      Array<int> numbers(MAX_VAL);
      int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -69,3 +64,15 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
+
+
+// int main()
+// {
+//     Array<int> table(5);
+//      for(int i =0;i < 5 ;i++)
+//         table[i] = i;
+//     table[3] = 10;
+//     for(int i = 0;i < 5;i++)
+//         std::cout<< table[i] <<std::endl;
+        
+// }
