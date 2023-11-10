@@ -9,6 +9,26 @@ template <typename T> class MutantStack: public std::stack<T> {
         std::vector<T> hold;
     public:
         typedef typename std::vector<T>::iterator iterator;
+        MutantStack()
+        {
+
+        }
+        
+        MutantStack(const MutantStack &main)
+        {
+            if(&main != this)
+                *this = main;
+        }
+
+        MutantStack& operator=(const MutantStack &main)
+        {
+            if(&main != this)
+            {
+                hold.clear();
+                hold = main.hold;
+            }
+            return *this;
+        }
         iterator begin()
         {
             return hold.begin();

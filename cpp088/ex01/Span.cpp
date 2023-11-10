@@ -54,7 +54,7 @@ int Span::shortestSpan()
     int number = 0;
     std::vector<int> tmp(hold);
     std::vector<int>::iterator p;
-    if(hold.size()  <= 1)
+    if(hold.size() <= 1)
         throw "size less than 2";
     std::sort(tmp.begin(),tmp.end());
     for(int i  = 0; i < static_cast <int> (hold.size()) - 1 ;i++)
