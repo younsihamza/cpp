@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/12 15:52:44 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/11/12 15:52:44 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 Span::Span():size(0)
 {
@@ -6,7 +18,7 @@ Span::Span():size(0)
 
 Span::Span(unsigned int number):size(number)
 {
-
+    
 }
 
 Span::Span(const Span& main):size(main.size)
@@ -20,7 +32,6 @@ Span& Span::operator=(const Span& main)
     if(this != &main)
     {
         this->size = main.size;
-        hold.clear();
         hold = main.hold;
     }
     return *this;
@@ -36,7 +47,7 @@ void Span::addNumber(int number)
     if( static_cast< unsigned int> (hold.size()) < size)
         hold.push_back(number);
     else 
-        throw "span is full";
+        throw "ERROR : span is full";
 }
 
 
@@ -51,11 +62,9 @@ int Span::longestSpan(){
 
 int Span::shortestSpan()
 {
-    int number = 0;
+    int number = longestSpan();
     std::vector<int> tmp(hold);
     std::vector<int>::iterator p;
-    if(hold.size() <= 1)
-        throw "size less than 2";
     std::sort(tmp.begin(),tmp.end());
     for(int i  = 0; i < static_cast <int> (hold.size()) - 1 ;i++)
     {

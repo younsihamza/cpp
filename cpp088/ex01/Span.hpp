@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/12 15:52:41 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/11/12 15:52:41 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 #define SPAN_HPP
 #include <iostream>
@@ -22,14 +34,9 @@ class Span
         
         template<typename T >void addOne(T begin,T end)
         {
-            for(T i = begin; i != end;i++)
-                addNumber(*i);
-            // std::copy(begin , end,std::back_inserter(hold));
-            // std::cout << hold.size() << "   " << size <<std::endl;
-            // if(static_cast<unsigned int>(hold.size()) >= size)
-            //     throw "out of rang";
-            // else
-            //     current_position = static_cast<int>(hold.size());
+            hold.insert(hold.begin() + hold.size(),begin,end);
+            if(size < hold.size())
+                throw "span is full ";
         }
 };
 

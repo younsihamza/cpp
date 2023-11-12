@@ -11,7 +11,7 @@ class MutantStack: public std::stack<T>{
         
         std::vector<T> myData;
     public:
-        typedef typename std::vector<T>::iterator iterator;
+        typedef typename std::deque<T>::iterator iterator;
         MutantStack(){};
         MutantStack& operator=( MutantStack& main)
         {
@@ -48,11 +48,11 @@ class MutantStack: public std::stack<T>{
         
         iterator begin()  
         {
-            return (myData.begin());
+            return (c.begin());
         }
         iterator end() 
         {
-            return (myData.end());
+            return (c.end());
         }
         ~MutantStack()
         {

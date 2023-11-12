@@ -1,6 +1,6 @@
 cc = c++
 
-name = template
+name = easyfind
 
 flags = -Wall -Wextra -Werror -std=c++98
 

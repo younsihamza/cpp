@@ -1,6 +1,6 @@
 cc = c++
 
-name = Span
+name = multstack
 
 flags = -Wall -Wextra -Werror -std=c++98
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/12 15:52:34 by hyounsi           #+#    #+#             */
+/*   Updated: 2023/11/12 15:52:34 by hyounsi          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "MutantStack.hpp"
 #include <list>
 int main()
@@ -12,9 +24,10 @@ int main()
     mstack.push(5);
     mstack.push(737);
     mstack.push(0);
-    
-    MutantStack<int>::iterator it = mstack.begin();
-    MutantStack<int>::iterator ite = mstack.end();
+    MutantStack<int> d;
+    d = mstack;
+    MutantStack<int>::iterator it = d.begin();
+    MutantStack<int>::iterator ite = d.end();
     ++it;
     --it;
 
@@ -24,28 +37,29 @@ int main()
         ++it;
     }
 
-std::stack<int> s(mstack);
-    std::cout <<"-------------------"<<std::endl;
+    std::stack<int> s(mstack);
 
-     std::list<int> myList;
-    myList.push_back(5);
-    myList.push_back(17);
-    std::cout << myList.back() << std::endl;
-    myList.pop_back();
-    std::cout << myList.size() << std::endl;
-    myList.push_back(3);
-    myList.push_back(5);
-    myList.push_back(737);
-    myList.push_back(0);
+    // std::cout <<"-------------------"<<std::endl;
 
-    std::list<int>::iterator lit = myList.begin();
-    std::list<int>::iterator lite = myList.end();
-    ++lit;
-    --lit;
+    //  std::list<int> myList;
+    // myList.push_back(5);
+    // myList.push_back(17);
+    // std::cout << myList.back() << std::endl;
+    // myList.pop_back();
+    // std::cout << myList.size() << std::endl;
+    // myList.push_back(3);
+    // myList.push_back(5);
+    // myList.push_back(737);
+    // myList.push_back(0);
 
-    while (lit != lite) {
-        std::cout << *lit << std::endl;
-        ++lit;
-    }
+    // std::list<int>::iterator lit = myList.begin();
+    // std::list<int>::iterator lite = myList.end();
+    // ++lit;
+    // --lit;
+
+    // while (lit != lite) {
+    //     std::cout << *lit << std::endl;
+    //     ++lit;
+    // }
     return 0;
 }
