@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/17 10:03:56 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/08/17 10:03:56 by hyounsi          ###   ########.fr       */
+/*   Updated: 2023/11/17 18:45:39 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@ const int Fixed::fraction = 8;
 Fixed::Fixed():fixed_number(0)
 {
     std::cout << "default constructor called "<<std::endl;
+    
 }
 
 Fixed::~Fixed()
