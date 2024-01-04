@@ -1,78 +1,88 @@
 #include "RPN.hpp"
-void check_ch(std::string text)
+
+RPN::RPN(const std::string& expression):expression(expression)
 {
-    std::string word = "+-/ *";
-    int i = 0;
-    while(text[i])
-    {
-        if(std::isdigit(text.at(i)) == true)
-            i++;
-        else if(word.find(text.at(i)) != -1)
-            i++;
-        else
-            throw "error charactare ";
-    }
+    checkIsValidExpression();
+    calculate();
 }
 
-void calcule(std::string text)
+
+bool RPN::checkIsValidExpression()
 {
-    int i = 0;
-    std::string tmp;
-    std::stack<int> hold;
-    int n1;
-    int n2;
-    while(text[i])
-    {
-        n1 = n2 = 0;
-        if(text[i] == ' ')
-            i++;
-        else if(std::isdigit(text[i])== true)
-        {
-            while(std::isdigit(text[i])== true )
-            {
-                tmp = tmp + text.at(i);
-                i++;
-            }
-            
-            if(tmp.length() != 1 )
-                throw "big than 10";
-            else
-                hold.push(atoi(tmp.c_str()));
-            tmp.clear();
-        }
-        else 
-        {
-            if(hold.size() <= 1)
-                throw "error operation";
-            n1 = hold.top();
-            hold.pop();
-            n2 = hold.top();
-            hold.pop();
-            if(text[i] == '+')
-                hold.push(n2 + n1);
-            else if(text[i] == '-')
-                hold.push(n2 - n1);
-            else if(text[i] == '/')
-                hold.push(n2 / n1);
-            else if(text[i] == '*')
-                hold.push(n2 * n1);
-            i++;
-        }
-    }
-    if(hold.size() > 1 ||hold.empty())
-        throw "error exprition ";
-    else 
-        std::cout << hold.top() <<std::endl;
+    std::string validChar = "0123456789+-*/ ";
+    for(size_t i = 0 ; i < expression.size();i++)
+        if(validChar.find(expression.at(i)) == std::string::npos)
+            return false;
+    return true;
 }
-void RPN::parce(std::string text)
+double checkOp(const std::string& op, double number1 , double number2)
 {
-    try
-    {
-        check_ch(text);
-        calcule(text);
-    }catch(const char* error)
-    {
-        std::cout << error <<std::endl;
-    }
+    double result = 0;
+    if(op[0] == '+')
+        result = number1 + number2;
+    else if(op[0] == '-')
+        result = number1 - number2;
+    else if(op[0] == '*')
+        result = number1 * number2;
+    else if(op[0] == '/')
+        result = number1 / number2;
+    return result;
+}
+
+void RPN::calculate()
+{
+    std::stringstream ss(expression);
+    std::string tmp;
+    int number;
+    double numberTable[2];
+
     
-};
+    while(getline(ss, tmp, ' '))
+    {
+        if(tmp.size() != 1)
+           throw "invalid expression";
+        if(std::isdigit(tmp[0]))
+        {
+            number = std::atoi(tmp.c_str());
+            stack.push(number);
+        }else
+        {
+            if(stack.size() < 2)
+                throw "invalid operation";
+            numberTable[1] =  stack.top();
+            stack.pop();
+            numberTable[0] = stack.top();
+            stack.pop();
+            stack.push(checkOp( tmp ,numberTable[0],numberTable[1]));
+        }
+    }
+   
+    if(stack.size() != 1)
+        throw "invalid operation";
+    std::cout << stack.top() << std::endl;
+}
+
+RPN::~RPN()
+{
+
+}
+
+RPN::RPN()
+{
+
+}
+
+RPN::RPN(const RPN& main)
+{
+    *this = main;
+}
+
+RPN& RPN::operator=(const RPN& main)
+{
+    if(this != & main)
+    {
+        stack = main.stack;
+        expression = main.expression;
+    }
+    return *this;
+}

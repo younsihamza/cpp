@@ -1,13 +1,13 @@
 cc = c++ 
 
-NAME = btc
+NAME = RPN
 flag = -Wall -Werror -Wextra -std=c++98
 
-files = BitcoinExchange.cpp main.cpp
+files = RPN.cpp main.cpp
 
 ofiles = $(files:.cpp=.o)
 
-header = BitcoinExchange.hpp
+header = RPN.hpp
 
 all : $(NAME)
 

@@ -6,7 +6,7 @@
 /*   By: hyounsi <hyounsi@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/04 16:09:36 by hyounsi           #+#    #+#             */
-/*   Updated: 2023/11/10 10:43:42 by hyounsi          ###   ########.fr       */
+/*   Updated: 2024/01/04 15:43:19 by hyounsi          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ template<typename T> class Array{
                 delete[] Ar;
         }
         
-            int size()const 
+        int size()const 
         {
             return len;
         }

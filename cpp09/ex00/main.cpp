@@ -1,14 +1,18 @@
 #include "BitcoinExchange.hpp"
+#include <iostream>
 
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
-    if(argc != 2)
-    {
-        std::cout << "you must enter one argument !!" << std::endl;
-        return 0;
+    try
+    {   
+        if(argc != 2)
+            throw "wrong number of arguments";
+        BitcoinExchange bitcoinExchange(argv[1]);
+       
     }
-    BitcoinExchange hamza;
-    hamza.fillMap();
-    hamza.parseData_print(argv[1]);
-    
+    catch(const char* e)
+    {
+        std::cout << e << '\n';
+    }
+    return 0;
 }

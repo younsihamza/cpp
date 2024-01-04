@@ -1,22 +1,26 @@
-#ifndef BITCOINEXCHANGE_HPP
-#define BITCOINEXCHANGE_HPP
-#include <iostream>
+#ifndef BITCOINEXCHAANGE_HPP
+#define BITCOINEXCHAANGE_HPP
 #include <map>
 #include <fstream>
+#include <sstream>
+#include <iostream>
+#include <algorithm>
+#include <list>
+#include <utility>
 
 class BitcoinExchange
 {
     private:
-        std::map<std::string,float,std::greater<std::string> > data; 
-    public:
-        void fillMap();
-        void parseData_print(std::string filename);
-
+        std::map <std::string, float> Datafile;
+        std::string filenameIn;
         BitcoinExchange();
-        BitcoinExchange(const BitcoinExchange &main);
+    public:
+        BitcoinExchange(const std::string& filenameIn);
+        void PaesefileData();
+        void ParseInFile();
+        bool checkDate(const std::string& dataString);
+        BitcoinExchange(const BitcoinExchange& copy);
+        BitcoinExchange& operator=(const BitcoinExchange& op);
         ~BitcoinExchange();
-        BitcoinExchange & operator=(const BitcoinExchange &main);
-
 };
-
 #endif
