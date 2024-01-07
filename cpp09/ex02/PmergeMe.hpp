@@ -3,19 +3,18 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
-#include <deque>
 #include <sstream>
+#include <deque>
+#include <ctime>
 
-class PmergeMe
-{
-    private:
-        std::deque<int> deque;
-        std::vector<int> vector;
-    public:
-        PmergeMe();
-        void parseArgument(int len , char **argv);
+// struct pair
+// {
+//     int first;
+//     int second;
+// };
 
-
-};
+bool checkIsNumber(const std::string& str);
+int  jacobsthalNumbers(size_t numbers );
+void sortVectorData(int len , char ** argv); 
 
 #endif

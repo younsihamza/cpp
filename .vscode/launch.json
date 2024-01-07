@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/hyounsi/Desktop/cpp/cpp09/ex00",
-      "program": "/Users/hyounsi/Desktop/cpp/cpp09/ex00/build/Debug/outDebug"
+      "cwd": "/Users/hyounsi/Desktop/cpp/cpp08/ex02",
+      "program": "/Users/hyounsi/Desktop/cpp/cpp08/ex02/build/Debug/outDebug"
     }
   ]
 }

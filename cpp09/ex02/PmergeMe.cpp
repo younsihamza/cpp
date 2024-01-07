@@ -1,4 +1,7 @@
 #include "PmergeMe.hpp"
+#include "SortVector.hpp"
+#include "SortDeque.hpp"
+#include <iomanip>
 
 bool checkIsNumber(const std::string& str)
 {
@@ -8,33 +11,42 @@ bool checkIsNumber(const std::string& str)
     return true;
 }
 
-PmergeMe::PmergeMe()
+int   jacobsthalNumbers(size_t numbers )
 {
-    
+    if(numbers <= 1)
+        return (numbers);
+    return jacobsthalNumbers(numbers - 1) + (2 * jacobsthalNumbers(numbers - 2));
 }
 
 
-void PmergeMe::parseArgument(int len , char **argv)
+void sortVectorData(int len , char ** argv)
 {
-    std::stringstream ss;
-    
-    double number;
-    for(int i = 1 ; i < len ; i++)
-        if(checkIsNumber(argv[i])== false)
-            throw "argumet not valide";
-    for(int i = 1; i < len ; i++)
+    try
     {
-        ss << argv[i];
-        ss >> number;
-        if( number > std::numeric_limits<unsigned int>::max())
-            throw "number too large!!";
-        deque.push_back(number);
-        vector.push_back(number);
-    }
-    for(size_t i = 0 ; i < deque.size();i++)
+       { 
+            SortVector vec;
+            std::clock_t times = std::clock();
+            double t;
+            vec.parseArgument(len , argv);
+            if(vec.size() > 1)
+                vec.vectorSort();
+            t = static_cast<double>(std::clock() - times) /  static_cast<double>(CLOCKS_PER_SEC);
+            vec.printValue();
+            std::cout <<std::fixed << std::setprecision(5) <<"Time to process a range of "<< vec.size() <<" elements with std::vector : " << (t)  << std::endl;
+        }
+        {
+            SortDeque deq;
+            std::clock_t times = std::clock();
+            double t;
+            deq.parseArgument(len , argv);
+            if(deq.size() > 1)
+                deq.DequeSort();
+            t = static_cast<double>(std::clock() - times) / static_cast<double>(CLOCKS_PER_SEC);
+            std::cout <<std::fixed << std::setprecision(5) <<"Time to process a range of "<< deq.size() <<" elements with std::deque : " <<  (t)  << std::endl;
+        }
+    }catch(const char* str)
     {
-        std::cout << deque.at(i) << std::endl;
-        std::cout << vector.at(i) << std::endl;
+        std::cout << "ERORR : " << str << std::endl;
     }
 }
 
