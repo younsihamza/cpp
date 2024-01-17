@@ -7,17 +7,18 @@ BitcoinExchange::BitcoinExchange(const std::string& filenameIn):filenameIn(filen
     ParseInFile();
 }
 
-bool checkIsNumber(const std::string& str)
+bool checkIsNumber( std::string& str)
 {
    
     int number = std::count(str.begin(), str.end(), '.');
-    if(number > 1)
+    if(str.find('-') != std::string::npos && (*str.begin() != '-' || str.size() == 1))
+        return false;
+    if(number > 1 || *str.begin() == '.' || *str.rbegin() == '.')
         return false;
     std::string character = ".-";
     for(size_t i = 0 ; i < str.size();i++)
         if(std::isdigit(str.at(i)) == false && character.find(str.at(i)) == std::string::npos)
             return false;
-    
     return true;
 }
 bool checkString(const std::string& str)
@@ -86,6 +87,8 @@ bool BitcoinExchange::checkDate( std::string& dataString)
     size_t date[3];
     dataString = dataString.substr(0,dataString.find(' '));
     char delimater;
+    if(dataString.size() != 10)
+        return false;
     for(size_t i  = 0 ; i < dataString.size();i++)
         if(std::isdigit(dataString.at(i))== false && dataString.at(i) != '-')
             return false;
@@ -114,7 +117,7 @@ void BitcoinExchange::ParseInFile()
         tmpMap[it->first] = it->second;
      std::fstream file;
      std::string tmp;
-     file.open(filenameIn);
+     file.open(filenameIn.c_str());
     if(!file.is_open())
         throw "in file not open !!";
     std::getline(file ,tmp);
@@ -127,23 +130,22 @@ void BitcoinExchange::ParseInFile()
             std::cout << " =>empty line!!" << std::endl;
             continue;
         }
-        if(tmp.size() < 14 || checkString(tmp) == false)
+        if(tmp.size() < 14 || checkString(tmp) == false || tmp.find(" | ") == std::string::npos)
         {
-            
             std::cout <<"ERROR: bad input!!=>" << tmp << std::endl;
             continue;
         }
-        std::string date = tmp.substr(0,tmp.find('|'));
+
+        std::string date = tmp.substr(0,tmp.find(" | "));
         // std::cout << date << std::endl;
         if(checkDate(date) == false)
         {
             std::cout <<"ERROR: bad input!!=>" << tmp << std::endl;
             continue;
         }
-        std::string value = tmp.substr(tmp.find("| ")+2);
+        std::string value = tmp.substr(tmp.find(" | ")+3);
         if(checkIsNumber(value) == false)
         {
-            std::cout << "value :"<<value << std::endl;
             std::cout <<"ERROR: bad input!!=>" << tmp << std::endl;
             continue;
         }
@@ -185,10 +187,10 @@ void BitcoinExchange::ParseInFile()
         long holdNumber3 = Tdate[0] * 10000 + Tdate[1] * 100 + Tdate[2];
         number1 = abs(holdNumber - holdNumber3);
         number2 = abs(holdNumber - holdNumber2);
-        if(number1 < number2)
-             std::cout  << date << " => "<< valueDouble << " = " << it->second * valueDouble << std::endl;
-        else
+        if(number1 <= number2)
             std::cout  << date << " => "<< valueDouble << " = " << it2->second * valueDouble << std::endl;
+        else
+             std::cout  << date << " => "<< valueDouble << " = " << it->second * valueDouble << std::endl;
     }
     file.close();
 }

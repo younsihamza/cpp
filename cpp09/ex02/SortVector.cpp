@@ -1,5 +1,6 @@
 #include "SortVector.hpp"
 #include "PmergeMe.hpp"
+#include <limits>
 
 SortVector::SortVector()
 {
