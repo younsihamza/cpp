@@ -7,14 +7,9 @@
 #include <deque>
 #include <ctime>
 
-// struct pair
-// {
-//     int first;
-//     int second;
-// };
 
 bool checkIsNumber(const std::string& str);
 int  jacobsthalNumbers(size_t numbers );
-void sortVectorData(int len , char ** argv); 
+void sortData(int len , char ** argv); 
 
 #endif

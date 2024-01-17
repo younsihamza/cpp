@@ -19,6 +19,7 @@ SortVector::SortVector(const SortVector& main)
 SortVector&  SortVector::operator=(const SortVector& main)
 {
     vector = main.vector;
+    befor = main.befor;
     return *this;
 }
 
@@ -86,7 +87,10 @@ void SortVector::insertToVector(std::vector<int> &vector , int trg)
         else
             high = mid - 1; 
     }
-    vector.insert(vector.begin() + low,trg);
+
+    vector.insert(vector.begin() + low , trg);
+    
+
 }
 
 void SortVector::sortPairt(std::vector<std::pair<int,int> >& pairNumbers)
@@ -110,7 +114,7 @@ void  SortVector::generateJacobsthalNumbers( std::vector<int>&sp, size_t size)
     size_t hold;
     for(size_t i = 0; i < size ; i++)
     {
-        if ((hold = jacobsthalNumbers(i)) > size)
+        if ((hold = jacobsthalNumbers(i)) >= size)
             break;
         sp.push_back(hold);
     }

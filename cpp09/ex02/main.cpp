@@ -5,5 +5,5 @@ int main(int argc , char **argv)
 {
     if(argc == 1)
         return (std::cout << "ERROR: no argument enter !" << std::endl, 0);
-    sortVectorData(argc,argv);
+    sortData(argc,argv);
 }

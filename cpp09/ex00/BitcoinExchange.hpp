@@ -18,7 +18,7 @@ class BitcoinExchange
         BitcoinExchange(const std::string& filenameIn);
         void PaesefileData();
         void ParseInFile();
-        bool checkDate(const std::string& dataString);
+        bool checkDate( std::string& dataString);
         BitcoinExchange(const BitcoinExchange& copy);
         BitcoinExchange& operator=(const BitcoinExchange& op);
         ~BitcoinExchange();

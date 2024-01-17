@@ -58,7 +58,8 @@ void BitcoinExchange::PaesefileData()
             throw (file.close(), "empty line in file data!!");
         if(tmp.size() < 11 )
             throw (file.close(), "date format is not correct");
-        if(checkDate(tmp.substr(0,10)) == false)
+        std::string h = tmp.substr(0,10) ;
+        if(checkDate(h) == false)
             throw (file.close(), "date format is not correct");
         tmp = tmp.substr(11);
         if(checkIsNumber(tmp) == false)
@@ -80,17 +81,19 @@ bool isLeapYear(int year)
     return((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0));
 }
 
-bool BitcoinExchange::checkDate(const std::string& dataString)
+bool BitcoinExchange::checkDate( std::string& dataString)
 {
     size_t date[3];
+    dataString = dataString.substr(0,dataString.find(' '));
     char delimater;
     for(size_t i  = 0 ; i < dataString.size();i++)
         if(std::isdigit(dataString.at(i))== false && dataString.at(i) != '-')
             return false;
     std::stringstream ss;
+    // std::cout << dataString << std::endl;
     ss << dataString;
     ss >> date[0] >> delimater >> date[1] >> delimater >> date[2];
-    if(date[0] < 2009 || date[0] > 2024 || date[1] < 1 || date[1] > 12 || date[2] < 1 || date[2] > 31)
+    if(date[0] < 2009 || date[0] > 9999 || date[1] < 1 || date[1] > 12 || date[2] < 1 || date[2] > 31)
         return false;
     if(date[1] == 2)
     {
@@ -126,10 +129,12 @@ void BitcoinExchange::ParseInFile()
         }
         if(tmp.size() < 14 || checkString(tmp) == false)
         {
+            
             std::cout <<"ERROR: bad input!!=>" << tmp << std::endl;
             continue;
         }
-        std::string date = tmp.substr(0,10);
+        std::string date = tmp.substr(0,tmp.find('|'));
+        // std::cout << date << std::endl;
         if(checkDate(date) == false)
         {
             std::cout <<"ERROR: bad input!!=>" << tmp << std::endl;
@@ -181,9 +186,9 @@ void BitcoinExchange::ParseInFile()
         number1 = abs(holdNumber - holdNumber3);
         number2 = abs(holdNumber - holdNumber2);
         if(number1 < number2)
-            std::cout  << date << " => "<< valueDouble << " = " << it2->second * valueDouble << std::endl;
-        else
              std::cout  << date << " => "<< valueDouble << " = " << it->second * valueDouble << std::endl;
+        else
+            std::cout  << date << " => "<< valueDouble << " = " << it2->second * valueDouble << std::endl;
     }
     file.close();
 }

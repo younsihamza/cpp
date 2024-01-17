@@ -14,11 +14,13 @@ SortDeque::~SortDeque()
 SortDeque::SortDeque(const SortDeque& main)
 {
     Deque = main.Deque;
+    befor = main.befor;
 }
 
 SortDeque&  SortDeque::operator=(const SortDeque& main)
 {
     Deque = main.Deque;
+    befor = main.befor;
     return *this;
 }
 
@@ -110,7 +112,7 @@ void  SortDeque::generateJacobsthalNumbers( std::deque<int>&sp, size_t size)
     size_t hold;
     for(size_t i = 0; i < size ; i++)
     {
-        if ((hold = jacobsthalNumbers(i)) > size)
+        if ((hold = jacobsthalNumbers(i)) >= size)
             break;
         sp.push_back(hold);
     }

@@ -2,7 +2,8 @@
 
 RPN::RPN(const std::string& expression):expression(expression)
 {
-    checkIsValidExpression();
+    if(checkIsValidExpression() == false)
+        throw "invalid expression";
     calculate();
 }
 
